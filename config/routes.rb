@@ -1,11 +1,15 @@
 WalkNTalk::Application.routes.draw do
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
+  get "static_pages/home"
 
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
 
+  root :to => 'static_pages#home'
+  
+  match '/signup',  to: 'users#new'
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
+  
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
