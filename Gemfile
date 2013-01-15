@@ -11,6 +11,7 @@ gem 'paperclip', '3.4.0'
 gem 'aws-sdk', '1.8.0'
 gem 'rmagick', '2.12.0', :require => 'RMagick'
 gem 'pry', '0.9.10'
+gem 'newrelic_rpm'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
