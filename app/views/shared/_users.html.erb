@@ -1,7 +1,7 @@
 <div class="nav">
   <ul>
     <% for u in @users %>
-      <li><%= u.name %>: <%= u.state.name %></li>
+        <li><%= link_to u.name, u, style: "color: #{u.state.color_code}" %></li>
     <% end %>
   </ul>
 </div>
