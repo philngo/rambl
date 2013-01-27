@@ -1,5 +1,5 @@
 <div class="nav">
-  <ul>
+  <ul class="nav nav-pills nav-stacked">
     <% for u in @users %>
         <li><%= link_to u.name, u, style: "color: #{u.state.color_code}" %></li>
     <% end %>

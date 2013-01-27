@@ -9,16 +9,12 @@
         <%= link_to "Create account", signup_path, class: "btn btn-large btn-primary" %>
       </p>
   <% else %>
-    <div class="span3">
+    <div class="span7">
       <h2>People</h2>
       <%= render 'shared/users' %>
     </div>
-    <div class="span6">
-      <h2>My Availability</h2>
-      <%= render 'shared/availability' %>
-    </div>
-    <div class="span3">
-      <h2>Settings</h2>
+    <div class="span5">
+      <h2>My Settings</h2>
       <%= render 'shared/settings' %>
     </div>
   <% end %>

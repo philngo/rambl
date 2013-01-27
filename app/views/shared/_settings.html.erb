@@ -1,3 +1,30 @@
+<script type="text/javascript">
+
+  $(document).ready(function() {
+    setInterval(getLocation(), 1000);
+  });
+  
+  function getLocation() {
+    if (navigator.geolocation) {
+      $('#locator').text("Finding Current Position...");
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      $('#locator').text("Sorry, no geolocation available.");
+    }
+  }
+  
+  function showPosition(position) {
+    $('#locator').text("Latitude: "  + position.coords.latitude +
+    "<br>Longitude: " + position.coords.longitude +
+    "<br>Accuracy (in m): " + position.coords.accuracy +
+    "<br>Altitude: " + position.coords.altitude + 
+    "<br>AltAccuracy: " + position.coords.altitudeAccuracy +
+    "<br>Heading: " + position.coords.heading +
+    "<br>Speed: " + position.coords.speed);
+  }
+
+</script>
+
 <div class="nav">
   <ul class="nav nav-pills nav-stacked">
     <% for state in @states %>
@@ -6,4 +33,6 @@
       </li>
     <% end %>
   </ul>
+</div>
+<div id="locator">
 </div>
