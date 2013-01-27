@@ -1,22 +1,20 @@
 <script type="text/javascript">
-
   $(document).ready(function() {
-    setInterval(getLocation(), 1000);
-  });
-  
-  function getLocation() {
-    if (navigator.geolocation) {
-      $('#locator').text("Finding Current Position...");
-      navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-      $('#locator').text("Sorry, no geolocation available.");
-    }
-  }
-  
-  function showPosition(position) {
-      $('#locator').html("<p>Speed: " + position.coords.speed + "</p>");
-  }
+      var count = 0;
+      setInterval(function () {
+        if (navigator.geolocation) {
+          $('#locator').html("");
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+          $('#locator').html("Sorry, no geolocation available.");
+        }
+      }, 3000);
+      
+      function showPosition(position) {
+        $('#locator').html("<p>Speed: " + position.coords.speed + "</p>");
+      }
 
+  });
 </script>
 
 <div class="nav">
@@ -28,5 +26,6 @@
     <% end %>
   </ul>
 </div>
+
 <div id="locator">
 </div>
