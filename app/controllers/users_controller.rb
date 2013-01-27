@@ -20,10 +20,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+    @user.state = State.all.first
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to Jot it!"
-      redirect_to @user
+      flash[:success] = "Welcome to amblr!"
+      redirect_to root_path
     else
       render 'new'
     end
