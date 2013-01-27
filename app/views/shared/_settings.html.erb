@@ -1,0 +1,9 @@
+<div class="nav">
+  <ul class="nav nav-pills nav-stacked">
+    <% for state in @states %>
+      <li>
+        <%= link_to state.name, update_state_path(@user, state) %>
+      </li>
+    <% end %>
+  </ul>
+</div>

@@ -1,6 +1,9 @@
 WalkNTalk::Application.routes.draw do
   get "static_pages/home"
 
+  
+  match '/users/:id/update_state/:state_id', to: 'users#update_state', as: :update_state
+  
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 
@@ -9,6 +12,7 @@ WalkNTalk::Application.routes.draw do
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
+  
   
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase

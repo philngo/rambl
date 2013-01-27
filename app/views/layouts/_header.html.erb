@@ -1,0 +1,17 @@
+<div class="navbar navbar-static-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <ul class="nav pull-left">
+        <li><%= link_to "amblr", root_path, class: "brand" %></li>
+      </ul><ul class="nav pull-right">
+        <% if current_user.nil? %>
+          <li><%= link_to "Sign in", signin_path %></li>
+          <li><%= link_to "Create account", signup_path %></li>
+        <% else %>
+          <%= yield :navlinks %>
+          <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

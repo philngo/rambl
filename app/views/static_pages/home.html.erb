@@ -1,12 +1,22 @@
 <div class="center row-fluid">
-  <div class="center hero-unit">
-    <h1>Welcome to Walk 'N Talk!</h1>
+  <% if current_user.nil? %>
+    <div class="center hero-unit">
+      <h1>amblr</h1>
 
-    <h2>
-      This is the home page for the ES21 project
-    </h2>
+      <h2>Always know who's available</h2>
 
-    <%= link_to "Sign in", signin_path, class: "btn btn-large btn-primary" %>
-    <%= link_to "Sign up now!", signup_path, class: "btn btn-large" %>
-  </div>
+  <% else %>
+    <div class="span3">
+      <h2>People</h2>
+      <%= render 'shared/users' %>
+    </div>
+    <div class="span6">
+      <h2>My Availability</h2>
+      <%= render 'shared/availability' %>
+    </div>
+    <div class="span3">
+      <h2>Settings</h2>
+      <%= render 'shared/settings' %>
+    </div>
+  <% end %>
 </div>

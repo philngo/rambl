@@ -8,6 +8,10 @@
 #  password_digest :string(255)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  remember_token  :string(255)
+#  velocity        :integer          default(0)
+#  state_id        :integer
+#  admin           :boolean          default(FALSE)
 #
 
 require 'spec_helper'

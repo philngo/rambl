@@ -1,0 +1,7 @@
+<div class="nav">
+  <ul>
+    <% for u in @users %>
+      <li><%= u.name %>: <%= u.state.name %></li>
+    <% end %>
+  </ul>
+</div>
