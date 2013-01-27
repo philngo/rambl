@@ -17,7 +17,7 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation, :state_id, :velocity
   has_secure_password
-
+ 
   belongs_to :state
 
   before_save { |user| user.email = email.downcase }
