@@ -14,13 +14,7 @@
   }
   
   function showPosition(position) {
-    $('#locator').text("Latitude: "  + position.coords.latitude +
-    "<br>Longitude: " + position.coords.longitude +
-    "<br>Accuracy (in m): " + position.coords.accuracy +
-    "<br>Altitude: " + position.coords.altitude + 
-    "<br>AltAccuracy: " + position.coords.altitudeAccuracy +
-    "<br>Heading: " + position.coords.heading +
-    "<br>Speed: " + position.coords.speed);
+      $('#locator').html("<p>Speed: " + position.coords.speed + "</p>");
   }
 
 </script>
