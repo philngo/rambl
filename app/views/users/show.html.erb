@@ -1,15 +1,22 @@
-<p id="notice"><%= notice %></p>
-
-<p>
+<div class="center row-fluid">
+  <p>
   <b>Name:</b>
-  <%= @user.name %>
-</p>
+    <%= @user.name %>
+  </p>
 
-<p>
+  <p>
   <b>Email:</b>
-  <%= @user.email %>
-</p>
+    <%= @user.email %>
+  </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Sign out', signout_path, method: "delete" %> |
-<%= link_to 'Back', users_path %>
+  <p>
+  <b>Phone:</b><br/>
+    <% @user.phone_numbers.each do |pn| %>
+      <%= "#{pn.label.text}: #{pn.number}" %><br/>
+    <% end %>
+  </p>
+  
+  <%= link_to 'Edit', edit_user_path(@user) %> |
+  <%= link_to 'Sign out', signout_path, method: "delete" %> |
+  <%= link_to 'Back', root_path %>
+</div>

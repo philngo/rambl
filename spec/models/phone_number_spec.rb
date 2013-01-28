@@ -1,16 +1,17 @@
 # == Schema Information
 #
-# Table name: states
+# Table name: phone_numbers
 #
 #  id         :integer          not null, primary key
-#  name       :string(255)
+#  number     :string(255)
+#  user_id    :integer
+#  label_id   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  color_code :string(255)      default("#FFFFFF")
 #
 
 require 'spec_helper'
 
-describe State do
+describe PhoneNumber do
   pending "add some examples to (or delete) #{__FILE__}"
 end
