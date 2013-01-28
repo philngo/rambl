@@ -15,6 +15,10 @@
       <%= "#{pn.label.text}: #{pn.number}" %><br/>
     <% end %>
   </p>
+
+  <p>
+    <%= link_to "Call", "tel://#{@user.phone_numbers.first.number}"%>
+  </p>
   
   <%= link_to 'Edit', edit_user_path(@user) %> |
   <%= link_to 'Sign out', signout_path, method: "delete" %> |

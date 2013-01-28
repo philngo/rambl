@@ -15,4 +15,8 @@ class PhoneNumber < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :label
+  
+  VALID_PHONE_NUMBER_REGEX = /\A(([1]-|)\d{3}-|)\d{3}-\d{4}\Z/i 
+  validates :number, presence: true, format: { with: VALID_PHONE_NUMBER_REGEX }
+  validates_presence_of :user_id, :label_id
 end
