@@ -11,7 +11,7 @@
 #
 
 class PhoneNumber < ActiveRecord::Base
-  attr_accessible :number
+  attr_accessible :number, :label_id
 
   belongs_to :user
   belongs_to :label

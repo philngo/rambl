@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @phone_number = @user.phone_numbers.new
   end
 
   def create

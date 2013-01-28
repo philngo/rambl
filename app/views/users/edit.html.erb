@@ -1,9 +1,7 @@
-<h1>Update your profile</h1>
-
+<h2>Update Profile</h2>
 <div class="row">
   <div class="span6 offset3">
     <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages' %>
 
       <%= f.label :name %>
       <%= f.text_field :name %>
@@ -16,9 +14,28 @@
 
       <%= f.label :password_confirmation, "Confirm Password" %>
       <%= f.password_field :password_confirmation %>
-
+      <br/>
       <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+  <% end %>
+    <h2 style="margin-bottom: 10px">Phone numbers:</h2> <br/>
+    <% @user.phone_numbers.each do |pn| %>
+        <%= form_for [@user, pn] do |f| %>
+            <%= f.collection_select :label_id, Label.all, :id, :text %>
+            <br/>
+            <%= f.telephone_field :number %>
+            <br/>
+            <%= f.submit "Update Number", class: "btn btn-medium" %>
+            <%= link_to "delete", pn, controller: :phone_numbers, method: :delete, confirm: "Delete this number permanently?"%>
+        <% end unless pn.new_record? %>
     <% end %>
-
+    <h2 style="margin-bottom: 10px">Add new phone number:</h2> <br/>
+    <%= form_for [@user.phone_numbers.new] do |f| %>
+        <%= f.hidden_field :user_id, value: @user.id %>
+      <%= f.collection_select :label_id, Label.all, :id, :text %>
+      <br/>
+      <%= f.telephone_field :number %>
+      <br/>
+      <%= f.submit "Add number", class: "btn btn-medium" %>
+    <% end %>
   </div>
 </div>

@@ -17,7 +17,7 @@
   </p>
 
   <p>
-  <%= link_to "Call", "tel://#{@user.phone_numbers.first.number}", class: "btn btn-large btn-primary"%>
+  <%= link_to "Call", "tel://#{@user.phone_numbers.first.number}", class: "btn btn-large btn-primary" unless @user.phone_numbers.empty?%>
   </p>
   
   <%= link_to 'Edit', edit_user_path(@user) %> |

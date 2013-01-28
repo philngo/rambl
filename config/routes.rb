@@ -5,7 +5,12 @@ WalkNTalk::Application.routes.draw do
   match '/users/:id/update_state/:state_id', to: 'users#update_state', as: :update_state
   
   resources :users
+  resources :phone_numbers
   resources :sessions, only: [:new, :create, :destroy]
+
+  resources :users do
+    resources :phone_numbers
+  end
 
   root :to => 'static_pages#home'
   
