@@ -1,0 +1,27 @@
+<style>
+#location_holder {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+</style>
+<script type="text/javascript">
+  $(document).ready(function() {
+      var count = 0;
+      setInterval(function () {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+          $('#locator').html("Speed unknown");
+        }
+      }, 3000);
+      
+      function showPosition(position) {
+          $('#locator').html("Speed: " + (position.coords.speed == null ? "?" : position.coords.speed) + " m/s");
+      }
+
+  });
+</script>
+
+<div class="pull-right" id="location_holder">
+  <%= link_to "Speed: ? m/s", "#", id: "locator" %>
+</div>
