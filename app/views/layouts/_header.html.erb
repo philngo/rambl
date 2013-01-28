@@ -30,9 +30,9 @@
         <% if current_user.nil? %>
           <li><%= link_to "Sign in", signin_path %></li>
         <% else %>
+          <li><%= link_to "m/s:", "#", id: "locator" %></li>
           <%= yield :navlinks %>
           <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
-          <li><%= link_to "Speed:", "#", id: "locator" %></li>
         <% end %>
       </ul>
     </div>
