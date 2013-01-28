@@ -1,22 +1,3 @@
-<script type="text/javascript">
-  $(document).ready(function() {
-      var count = 0;
-      setInterval(function () {
-        if (navigator.geolocation) {
-          $('#locator').html("");
-          navigator.geolocation.getCurrentPosition(showPosition);
-        } else {
-          $('#locator').html("Sorry, no geolocation available.");
-        }
-      }, 3000);
-      
-      function showPosition(position) {
-        $('#locator').html("<p>Speed: " + position.coords.speed + "</p>");
-      }
-
-  });
-</script>
-
 <div class="nav">
   <ul class="nav nav-pills nav-stacked">
     <% for state in @states %>
@@ -25,7 +6,4 @@
       </li>
     <% end %>
   </ul>
-</div>
-
-<div id="locator">
 </div>

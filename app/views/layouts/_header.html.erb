@@ -1,3 +1,26 @@
+<style>
+#locator {
+    
+}
+</style>
+<script type="text/javascript">
+  $(document).ready(function() {
+      var count = 0;
+      setInterval(function () {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+          $('#locator').html("??");
+        }
+      }, 3000);
+      
+      function showPosition(position) {
+          $('#locator').html("Speed: " + (position.coords.speed == null ? "?" : position.coords.speed));
+      }
+
+  });
+</script>
+
 <div class="navbar navbar-static-top row-fluid">
   <div class="navbar-inner">
     <div class="container-fluid">
@@ -9,6 +32,7 @@
         <% else %>
           <%= yield :navlinks %>
           <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+          <li><%= link_to "Speed:", "#", id: "locator" %></li>
         <% end %>
       </ul>
     </div>
